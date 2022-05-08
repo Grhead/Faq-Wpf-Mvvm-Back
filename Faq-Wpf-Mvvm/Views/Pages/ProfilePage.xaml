@@ -1,0 +1,61 @@
+﻿<Page x:Class="Faq_Wpf_Mvvm.Views.ProfilePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Faq_Wpf_Mvvm.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ProfilePage">
+
+    <Grid>
+        <StackPanel Margin="30,130,0,0">
+            <TextBlock
+                x:Name="NameTextBlock"
+                Grid.Row="0"
+                Grid.Column="0"
+                FontSize="14"
+                FontWeight="DemiBold"
+                Text="{Binding StringFormat=Ваше имя: {0}, Path=FirstNameTextBlock}"/>
+            <TextBlock
+                x:Name="SurNameTextBlock"
+                Grid.Row="1"
+                Grid.Column="0"
+                FontSize="14"
+                FontWeight="DemiBold"
+                Text="{Binding StringFormat=Ваша фамилия: {0}, Path=SurnameTextBlock}"/>
+            <TextBlock
+                x:Name="LastNameTextBlock"
+                Grid.Row="2"
+                Grid.Column="0"
+                FontSize="14"
+                FontWeight="DemiBold"
+                Text="{Binding StringFormat=Ваше отчество: {0}, Path=LastNameTextBlock}"
+            />
+            <TextBlock
+                x:Name="LoginTextBlock"
+                Grid.Row="3"
+                Grid.Column="0"
+                FontSize="14"
+                FontWeight="DemiBold"
+                Text="{Binding StringFormat=Ваш логин: {0}, Path=LoginTextBlock}"
+            />
+            <TextBlock
+                x:Name="GetTextBlock"
+                Grid.Row="4"
+                Grid.Column="0"
+                FontSize="14"
+                FontWeight="DemiBold"
+                Text="{Binding StringFormat=Количество решенных задач: {0}, Path=TaskCountGet}"
+                />
+            <TextBlock
+                x:Name="SetTextBlock"
+                Grid.Row="5"
+                Grid.Column="0"
+                FontSize="14"
+                FontWeight="DemiBold"
+                Text="{Binding StringFormat=Количество заданных задач: {0}, Path=TaskCountSet}"
+            />
+        </StackPanel>
+    </Grid>
+</Page>

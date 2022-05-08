@@ -1,0 +1,73 @@
+﻿<Page x:Class="Faq_Wpf_Mvvm.Views.CreateTaskPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Faq_Wpf_Mvvm.Views" xmlns:viewmodels="clr-namespace:Faq_Wpf_Mvvm.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:CreateTaskViewModel}"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="CreateTaskPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid
+            Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <StackPanel
+                Margin="10"
+                Grid.Column="0">
+                <TextBlock
+                    Text="Название новой задачи:"
+                    FontSize="14"
+                    FontWeight="DemiBold"
+                    />
+                <TextBox
+                    x:Name="TaskTitleBox"
+                    Height="20"
+                    FontSize="14"
+                    FontWeight="DemiBold"
+                    Width="200"
+                    HorizontalAlignment="Left"
+                    TextWrapping="Wrap"
+                    Text="{Binding Title}"
+                    />
+            </StackPanel>
+            <StackPanel
+                Margin="10"
+                Grid.Column="1">
+                <TextBlock
+                    Text="Описание новой задачи:"
+                    FontSize="14"
+                    FontWeight="DemiBold"
+                    />
+                <TextBox
+                    x:Name="TaskDescriptionBox"
+                    Height="120"
+                    FontSize="14"
+                    FontWeight="DemiBold"
+                    Width="200"
+                    HorizontalAlignment="Left"
+                    TextWrapping="Wrap"
+                    Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}"
+                    />
+            </StackPanel>
+        </Grid>
+        <StackPanel
+            Grid.Row="1">
+            <Button
+                x:Name="SetTaskButton"
+                Content="Разместить"
+                FontSize="14"
+                FontWeight="DemiBold"
+                Width="250"
+                Height="30"
+                Command="{Binding CreateTaskCommand, UpdateSourceTrigger=PropertyChanged}"/>
+        </StackPanel>
+    </Grid>
+</Page>

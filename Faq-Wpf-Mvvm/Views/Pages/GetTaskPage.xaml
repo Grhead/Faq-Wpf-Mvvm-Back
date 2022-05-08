@@ -1,0 +1,112 @@
+﻿<Page x:Class="Faq_Wpf_Mvvm.Views.GetTaskPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Faq_Wpf_Mvvm.Views" xmlns:viewmodels="clr-namespace:Faq_Wpf_Mvvm.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:GetTaskViewModel}"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="GetTaskPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <StackPanel 
+            Grid.Row="0"
+            Grid.Column="0"
+            Margin="30 10 0 0">
+            <TextBlock
+                Text="Доступные задачи"
+                FontWeight="DemiBold"
+                FontSize="14"
+                />
+            <ListBox
+                x:Name="TaskList"
+                BorderThickness="0"
+                ItemsSource="{Binding ListOfTasks}"
+                SelectedItem="{Binding SelectedItem}"
+                Height="310">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock
+                                Text="{Binding StringFormat = Название - {0},Path = Title}"
+                                FontWeight="DemiBold"
+                                FontSize="14"
+                            />
+                            <TextBlock
+                                Text="{Binding StringFormat = Описание - {0},Path = Description}"
+                                FontWeight="DemiBold"
+                                FontSize="14"
+                            />
+                            <TextBlock
+                                Text="{Binding StringFormat = Статус - {0},Path = Status.Title}"
+                                FontWeight="DemiBold"
+                                FontSize="14"
+                            />
+                            <TextBlock
+                                x:Name="UserSetTextBlock"
+                                Text="{Binding StringFormat = Пользователь - {0},Path = UsersSet.FirstName}"
+                                FontWeight="DemiBold"
+                                FontSize="14"
+                            />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
+        <StackPanel
+            Grid.Row="0"
+            Grid.Column="1"
+            Margin="15 10 0 0">
+            <TextBlock
+                x:Name="TaskTitle"
+                Margin="15 0 0 0"
+                Text="{Binding ElementName=TaskList, Path=SelectedItem.Title}"
+                FontWeight="DemiBold"
+                FontSize="14"
+                />
+            <TextBlock
+                x:Name="TaskDescription"
+                Margin="15 0 0 0"
+                Text="{Binding ElementName=TaskList, Path=SelectedItem.Description}"
+                FontWeight="DemiBold"
+                FontSize="14"
+            />
+            <TextBlock
+                x:Name="TaskDate"
+                Margin="15 0 0 0"
+                Text="{Binding ElementName=TaskList, Path=SelectedItem.Date}"
+                FontWeight="DemiBold"
+                FontSize="14"
+            />
+            <TextBlock
+                x:Name="TaskUserSet"
+                Margin="15 0 0 0"
+                Text="{Binding ElementName=TaskList, Path=SelectedItem.UsersSet.Login}"
+                FontWeight="DemiBold"
+                FontSize="14"
+            />
+            <TextBox
+                Name="UserGetAnswer"
+                Margin="15 10 15 0 "
+                Height="150"
+                Width="235"
+                FontWeight="DemiBold"
+                FontSize="12"
+                Text="{Binding UserGetAnswer, UpdateSourceTrigger=PropertyChanged}"
+            />
+            <Button
+                Name="UserConfirmBtn"
+                Content="Отправить"
+                Height="25"
+                Margin="15 10 15 0"
+                FontWeight="DemiBold"
+                FontSize="14"
+                Command="{Binding UserConfirm}"
+            />
+        </StackPanel>
+    </Grid>
+</Page>

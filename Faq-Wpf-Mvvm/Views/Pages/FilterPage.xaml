@@ -1,0 +1,106 @@
+﻿<Page x:Class="Faq_Wpf_Mvvm.Views.FilterPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Faq_Wpf_Mvvm.Views" xmlns:viewmodels="clr-namespace:Faq_Wpf_Mvvm.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:FilterViewModel}"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="FilterPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel
+            Grid.Column="0"
+            Grid.Row="0"
+            Margin="10 10 0 0"
+            >
+            <TextBlock
+                Text="DateStartBlock"
+                FontSize="14"
+                FontWeight="DemiBold"
+                />
+            <Calendar
+                Name="DateStartBox"
+                SelectedDate="{Binding DateStartBlockSelected}"
+            />
+        </StackPanel>
+        <StackPanel
+            Grid.Column="1"
+            Grid.Row="0"
+            Margin="10 10 0 0"
+            >
+            <TextBlock
+                Text="DateEndBlock"
+                FontSize="14"
+                FontWeight="DemiBold"
+            />
+            <Calendar
+                Name="DateEndBox"
+                SelectedDate="{Binding DateEndBlockSelected}"
+            />
+        </StackPanel>
+        <StackPanel
+            Grid.Column="0"
+            Grid.Row="1"
+            Grid.ColumnSpan="2"
+            Grid.RowSpan="2">
+            <Button
+            Margin="170 10 170 20"
+            Content="Найти"
+            FontSize="14"
+            FontWeight="DemiBold"
+            Command="{Binding FindButton}"
+            />
+            <ListBox
+            x:Name="TaskList"
+            BorderThickness="0"
+            Margin="50 0 50 0"
+            ItemsSource="{Binding DateTasks, UpdateSourceTrigger=PropertyChanged}"
+            Height="140">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock
+                            Text="{Binding StringFormat = Название - {0},Path = Title}"
+                            FontWeight="DemiBold"
+                            FontSize="14"
+                        />
+                            <TextBlock
+                            Text="{Binding StringFormat = Описание - {0},Path = Description}"
+                            FontWeight="DemiBold"
+                            FontSize="14"
+                        />
+                            <TextBlock
+                            Text="{Binding StringFormat = Статус - {0},Path = Status.Title}"
+                            FontWeight="DemiBold"
+                            FontSize="14"
+                        />
+                            <TextBlock
+                            x:Name="UserSetTextBlock"
+                            Text="{Binding StringFormat = Пользователь - {0},Path = UsersSet.FirstName}"
+                            FontWeight="DemiBold"
+                            FontSize="14"
+                        />
+                            <TextBlock
+                            x:Name="DateTextBlock"
+                            Text="{Binding StringFormat = Дата - {0},Path = Date}"
+                            FontWeight="DemiBold"
+                            FontSize="14"
+                        />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
+
+    </Grid>
+</Page>
