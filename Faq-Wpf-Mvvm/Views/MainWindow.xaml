@@ -52,6 +52,7 @@
             Foreground="White"
             Command="{Binding NavigationCommand}"
             CommandParameter="reg"
+            Click="RegisterBtn_Click"
             />
         <Button
             x:Name="ExitBtn"
