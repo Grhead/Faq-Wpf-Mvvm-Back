@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\gr604_mieol\source\repos\Faq-Wpf-Mvvm-Back\Faq-Wpf-Mvvm\obj\Debug\net6.0-windows\
+C:\Users\forda\source\repos\Faq-Wpf-Mvvm-Back\Faq-Wpf-Mvvm\obj\Debug\net6.0-windows\
 Faq_Wpf_Mvvm
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-C:\Users\gr604_mieol\source\repos\Faq-Wpf-Mvvm-Back\Faq-Wpf-Mvvm\App.xaml
+C:\Users\forda\source\repos\Faq-Wpf-Mvvm-Back\Faq-Wpf-Mvvm\App.xaml
 12-2063438021
 
 36923399009
-214-674550389
+223-1229238012
 Views\MainWindow.xaml;Views\Pages\AuthPage.xaml;Views\Pages\AvailableTaskPage.xaml;Views\Pages\ChangeStatusPage.xaml;Views\Pages\CreateTaskPage.xaml;Views\Pages\FilterPage.xaml;Views\Pages\FindPage.xaml;Views\Pages\GetTaskPage.xaml;Views\Pages\HistoryPage.xaml;Views\Pages\ProfilePage.xaml;Views\Pages\RegistrePage.xaml;Views\Pages\ViewUsersPage.xaml;
 
 False

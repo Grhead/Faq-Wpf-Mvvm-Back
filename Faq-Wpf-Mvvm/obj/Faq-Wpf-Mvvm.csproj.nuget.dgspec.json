@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\gr604_mieol\\source\\repos\\Faq-Wpf-Mvvm-Back\\Faq-Wpf-Mvvm\\Faq-Wpf-Mvvm.csproj": {}
+    "C:\\Users\\forda\\source\\repos\\Faq-Wpf-Mvvm-Back\\Faq-Wpf-Mvvm\\Faq-Wpf-Mvvm.csproj": {}
   },
   "projects": {
-    "C:\\Users\\gr604_mieol\\source\\repos\\Faq-Wpf-Mvvm-Back\\Faq-Wpf-Mvvm\\Faq-Wpf-Mvvm.csproj": {
+    "C:\\Users\\forda\\source\\repos\\Faq-Wpf-Mvvm-Back\\Faq-Wpf-Mvvm\\Faq-Wpf-Mvvm.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\gr604_mieol\\source\\repos\\Faq-Wpf-Mvvm-Back\\Faq-Wpf-Mvvm\\Faq-Wpf-Mvvm.csproj",
+        "projectUniqueName": "C:\\Users\\forda\\source\\repos\\Faq-Wpf-Mvvm-Back\\Faq-Wpf-Mvvm\\Faq-Wpf-Mvvm.csproj",
         "projectName": "Faq-Wpf-Mvvm",
-        "projectPath": "C:\\Users\\gr604_mieol\\source\\repos\\Faq-Wpf-Mvvm-Back\\Faq-Wpf-Mvvm\\Faq-Wpf-Mvvm.csproj",
-        "packagesPath": "C:\\Users\\gr604_mieol\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\gr604_mieol\\source\\repos\\Faq-Wpf-Mvvm-Back\\Faq-Wpf-Mvvm\\obj\\",
+        "projectPath": "C:\\Users\\forda\\source\\repos\\Faq-Wpf-Mvvm-Back\\Faq-Wpf-Mvvm\\Faq-Wpf-Mvvm.csproj",
+        "packagesPath": "C:\\Users\\forda\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\forda\\source\\repos\\Faq-Wpf-Mvvm-Back\\Faq-Wpf-Mvvm\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\gr604_mieol\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\forda\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -44,19 +40,31 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "dependencies": {
+            "ClosedXML": {
+              "target": "Package",
+              "version": "[0.95.4, )"
+            },
+            "FreeSpire.Doc": {
+              "target": "Package",
+              "version": "[10.2.0, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[6.0.4, )"
+              "version": "[6.0.5, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[6.0.4, )"
+              "version": "[6.0.5, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[6.0.4, )"
+              "version": "[6.0.5, )"
+            },
+            "PdfSharp": {
+              "target": "Package",
+              "version": "[1.50.5147, )"
             }
           },
           "imports": [
@@ -77,7 +85,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }

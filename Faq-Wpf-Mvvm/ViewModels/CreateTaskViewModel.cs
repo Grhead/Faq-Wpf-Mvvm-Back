@@ -28,6 +28,7 @@ namespace Faq_Wpf_Mvvm.ViewModels
             {
                 TaskX NewTask = new TaskX();
                 var check = Service.db.TaskXes.Contains(NewTask);
+                NewTask.Date = DateTime.Now;
                 NewTask.Title = Title;
                 NewTask.Description = Description;
                 NewTask.StatusId = 1;

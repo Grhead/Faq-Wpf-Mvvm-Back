@@ -40,6 +40,7 @@
                                 Text="{Binding StringFormat = Описание - {0},Path = Description}"
                                 FontWeight="DemiBold"
                                 FontSize="14"
+                                TextWrapping="Wrap"
                             />
                             <TextBlock
                                 Text="{Binding StringFormat = Статус - {0},Path = Status.Title}"
@@ -94,8 +95,9 @@
                 Margin="15 10 15 0 "
                 Height="150"
                 Width="235"
+                FontSize="14"
                 FontWeight="DemiBold"
-                FontSize="12"
+                TextWrapping="Wrap"
                 Text="{Binding UserGetAnswer, UpdateSourceTrigger=PropertyChanged}"
             />
             <Button

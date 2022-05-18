@@ -18,7 +18,7 @@ namespace Faq_Wpf_Mvvm
         private RelayCommand _clearSes;
         public RelayCommand ClearSession => _clearSes ?? (_clearSes = new RelayCommand(x =>
         {
-            Service.ClientSession.Login = null;
+            Service.ClientSession = null;
             Service.frame.Navigate(new AuthPage());
         }));
         private RelayCommand _navigationCommand;

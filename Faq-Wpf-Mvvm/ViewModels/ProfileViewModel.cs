@@ -1,5 +1,12 @@
-﻿using System;
+﻿using ClosedXML.Excel;
+using Faq_Wpf_Mvvm.Models;
+using Microsoft.EntityFrameworkCore;
+using PdfSharp.Drawing;
+using PdfSharp.Pdf;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,12 +17,22 @@ namespace Faq_Wpf_Mvvm.ViewModels
     {
         public ProfileViewModel()
         {
+            rand = new Random();
             NameTextBlock = Service.ClientSession.FirstName;
             SurnameTextBlock = Service.ClientSession.SecondName;
             LastNameTextBlock = Service.ClientSession.LastName;
             LoginTextBlock = Service.ClientSession.Login;
             TaskCountGet = Service.db.TaskXes.Count(x => x.UsersGetId == Service.ClientSession.Id);
             TaskCountSet = Service.db.TaskXes.Count(x => x.UsersSetId == Service.ClientSession.Id);
+            ListOfTasks = new ObservableCollection<TaskX>(Service.db.TaskXes.Where(x => x.UsersGetId == Service.ClientSession.Id).Include(x => x.Status).Include(x => x.UsersSet));
+
+        }
+        private Random rand { get; set; }
+        private ObservableCollection<TaskX> _listOfTasks;
+        public ObservableCollection<TaskX> ListOfTasks
+        {
+            get { return _listOfTasks; }
+            set { _listOfTasks = value; OnPropertyChanged(); }
         }
         public string NameTextBlock { get; set; }
         public string SurnameTextBlock { get; set; }
@@ -33,5 +50,74 @@ namespace Faq_Wpf_Mvvm.ViewModels
             get { return _taskCountSet; }
             set { _taskCountSet = value; OnPropertyChanged(); }
         }
+
+        private RelayCommand _createReport;
+        public RelayCommand CreateReport => _createReport ?? (_createReport = new RelayCommand(x =>
+        {
+            int height = 50;
+            int width = 0;
+            PdfDocument document = new PdfDocument();
+            PdfPage page = document.AddPage();
+            XGraphics gfx = XGraphics.FromPdfPage(page);
+            XFont font = new XFont("Calibri", 14);
+            foreach (var item in ListOfTasks)
+            {
+                gfx.DrawString(item.Date.ToString(), font, XBrushes.Black, new XRect(width, height, 0, 0), XStringFormats.BaseLineLeft);
+                width = width + 120;
+                gfx.DrawString(item.Title.ToString(), font, XBrushes.Black, new XRect(width, height, 0, 0), XStringFormats.BaseLineLeft);
+                height = height + 20;
+                width = 0;
+                gfx.DrawString($"Описание: {item.Description}", font, XBrushes.Black, new XRect(width, height, 0, 0), XStringFormats.BaseLineLeft);
+                height = height + 15;
+                width = 0;
+                gfx.DrawString($"Ответ: {item.Answer}", font, XBrushes.Black, new XRect(width, height, 0, 0), XStringFormats.BaseLineLeft);
+                height = height + 23;
+                width = 0;
+            }
+            const string filename = "Reports/Report.pdf";
+            document.Save(filename);
+            using (XLWorkbook workbook = new XLWorkbook())
+            {
+                string name = "Report" + rand.Next().ToString();
+                IXLWorksheet? worksheet = workbook.Worksheets.Add("Report sheet");
+                worksheet.Column("B").CellsUsed().SetDataType(XLDataType.DateTime);
+                worksheet.Column("C").CellsUsed().SetDataType(XLDataType.Text);
+                worksheet.Column("D").Style.Alignment.SetHorizontal(XLAlignmentHorizontalValues.Right);
+                worksheet.Column("B").Style.Alignment.SetHorizontal(XLAlignmentHorizontalValues.Right);
+                int x1 = 2;
+                int y1 = 2;
+                int AllSum = 0;
+                worksheet.Cell(1, 2).Value = Convert.ToString("Дата");
+                worksheet.Cell(1, 2).Style.Border.BottomBorder = XLBorderStyleValues.Thick;
+                worksheet.Cell(1, 3).Value = Convert.ToString("Описание");
+                worksheet.Cell(1, 3).Style.Border.BottomBorder = XLBorderStyleValues.Thick;
+                worksheet.Cell(1, 4).Value = Convert.ToString("Ответ");
+                worksheet.Cell(1, 4).Style.Border.BottomBorder = XLBorderStyleValues.Thick;
+                foreach (var item in ListOfTasks)
+                {
+                    worksheet.Cell(y1, x1).Value = item.Date;
+                    y1 += 1;
+                }
+                y1 = 2;
+                x1 = 3;
+                foreach (var item in ListOfTasks)
+                {
+                    worksheet.Cell(y1, x1).Value = item.Description;
+                    y1 += 1;
+                }
+                y1 = 2;
+                x1 = 4;
+                foreach (var item in ListOfTasks)
+                {
+                    worksheet.Cell(y1, x1).Value = item.Answer;
+                    y1 += 1;
+                }
+                worksheet.Cell(y1, 2).Value = Convert.ToString(AllSum);
+                worksheet.Column("B").AdjustToContents();
+                worksheet.Column("C").AdjustToContents();
+                worksheet.Column("D").AdjustToContents();
+                workbook.SaveAs($"Reports/{name}.xlsx");
+            }
+        }));
     }
 }
