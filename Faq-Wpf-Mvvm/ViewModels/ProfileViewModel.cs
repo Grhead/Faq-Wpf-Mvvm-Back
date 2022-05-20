@@ -31,7 +31,6 @@ namespace Faq_Wpf_Mvvm.ViewModels
             TaskCountGet = Service.db.TaskXes.Count(x => x.UsersGetId == Service.ClientSession.Id);
             TaskCountSet = Service.db.TaskXes.Count(x => x.UsersSetId == Service.ClientSession.Id);
             ListOfTasks = new ObservableCollection<TaskX>(Service.db.TaskXes.Where(x => x.UsersGetId == Service.ClientSession.Id).Include(x => x.Status).Include(x => x.UsersSet));
-
         }
         private Random rand { get; set; }
         private ObservableCollection<TaskX> _listOfTasks;
@@ -125,14 +124,18 @@ namespace Faq_Wpf_Mvvm.ViewModels
                 worksheet.Column("A").AdjustToContents();
                 VistaFolderBrowserDialog dlg = new VistaFolderBrowserDialog();
                 dlg.ShowNewFolderButton = true;
-                string path = "C:\\";
+                string path = null;
                 if (dlg.ShowDialog() == true)
                 {
                     path = dlg.SelectedPath;
                 }
-                workbook.SaveAs($"{path}\\{name}.xlsx");
-                string filename = path + "\\" + "Report.pdf";
-                document.Save(filename);
+                if (path != null)
+                {
+                    workbook.SaveAs($"{path}\\{name}.xlsx");
+                    string filename = path + "\\" + "Report.pdf";
+                    document.Save(filename);
+                }
+                
             }
         }));
     }
