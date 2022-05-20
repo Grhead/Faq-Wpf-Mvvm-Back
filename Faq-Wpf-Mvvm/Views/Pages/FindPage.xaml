@@ -48,29 +48,29 @@
                 <DataTemplate>
                     <StackPanel>
                         <TextBlock
-                            Text="{Binding StringFormat = Название - {0},Path = Title}"
+                            Text="{Binding StringFormat = Название - {0},Path = Title, UpdateSourceTrigger=PropertyChanged}"
                             FontWeight="DemiBold"
                             FontSize="14"
                         />
                         <TextBlock
-                            Text="{Binding StringFormat = Описание - {0},Path = Description}"
+                            Text="{Binding StringFormat = Описание - {0},Path = Description, UpdateSourceTrigger=PropertyChanged}"
                             FontWeight="DemiBold"
                             FontSize="14"
                         />
                         <TextBlock
-                            Text="{Binding StringFormat = Статус - {0},Path = Status.Title}"
+                            Text="{Binding StringFormat = Статус - {0},Path = Status.Title, UpdateSourceTrigger=PropertyChanged}"
                             FontWeight="DemiBold"
                             FontSize="14"
                         />
                         <TextBlock
                             x:Name="UserSetTextBlock"
-                            Text="{Binding StringFormat = Пользователь - {0},Path = UsersSet.FirstName}"
+                            Text="{Binding StringFormat = Пользователь - {0},Path = UsersSet.FirstName, UpdateSourceTrigger=PropertyChanged}"
                             FontWeight="DemiBold"
                             FontSize="14"
                         />
                         <TextBlock
                             x:Name="DateTextBlock"
-                            Text="{Binding StringFormat = Дата - {0},Path = Date}"
+                            Text="{Binding StringFormat = Дата - {0},Path = Date, UpdateSourceTrigger=PropertyChanged}"
                             FontWeight="DemiBold"
                             FontSize="14"
                         />

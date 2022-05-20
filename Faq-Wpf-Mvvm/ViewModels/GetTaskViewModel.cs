@@ -36,7 +36,7 @@ namespace Faq_Wpf_Mvvm.ViewModels
         private RelayCommand _userConfirm;
         public RelayCommand UserConfirm => _userConfirm ?? (_userConfirm = new RelayCommand(x =>
         {
-            if (UserGetAnswer != "" && ListOfTasks.Count != 0)
+            if (UserGetAnswer != null && ListOfTasks.Count != 0 && SelectedItem != null)
             {
                 var ToPush = Service.db.TaskXes.FirstOrDefault(x => x.Title == SelectedItem.Title);
                 ToPush.UsersGetId = Service.ClientSession.Id;

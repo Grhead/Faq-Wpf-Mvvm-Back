@@ -21,12 +21,12 @@ namespace Faq_Wpf_Mvvm.ViewModels
         public ObservableCollection<User> ListOfUsers
         {
             get { return _listOfUsers; }
-            set { _listOfUsers = value;}
+            set { _listOfUsers = value; OnPropertyChanged(); }
         }
         public ObservableCollection<TaskX> ListOfTasks
         {
             get { return _listOfTasks; }
-            set { _listOfTasks = value;}
+            set { _listOfTasks = value; OnPropertyChanged(); }
         }
         private string _userLoginGet;
         public string UserLoginGet

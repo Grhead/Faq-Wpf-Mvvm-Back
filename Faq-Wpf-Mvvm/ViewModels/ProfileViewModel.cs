@@ -87,6 +87,7 @@ namespace Faq_Wpf_Mvvm.ViewModels
                 int x1 = 2;
                 int y1 = 2;
                 int AllSum = 0;
+                worksheet.Cell(1, 1).Value = Convert.ToString(Service.ClientSession.Login);
                 worksheet.Cell(1, 2).Value = Convert.ToString("Дата");
                 worksheet.Cell(1, 2).Style.Border.BottomBorder = XLBorderStyleValues.Thick;
                 worksheet.Cell(1, 3).Value = Convert.ToString("Описание");
@@ -116,6 +117,7 @@ namespace Faq_Wpf_Mvvm.ViewModels
                 worksheet.Column("B").AdjustToContents();
                 worksheet.Column("C").AdjustToContents();
                 worksheet.Column("D").AdjustToContents();
+                worksheet.Column("A").AdjustToContents();
                 workbook.SaveAs($"Reports/{name}.xlsx");
             }
         }));
