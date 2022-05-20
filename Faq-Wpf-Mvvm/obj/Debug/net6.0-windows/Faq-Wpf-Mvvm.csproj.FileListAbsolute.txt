@@ -395,3 +395,7 @@ C:\Users\gr604_mieol\Source\Repos\Faq-Wpf-Mvvm-Back\Faq-Wpf-Mvvm\bin\Debug\net6.
 C:\Users\gr604_mieol\Source\Repos\Faq-Wpf-Mvvm-Back\Faq-Wpf-Mvvm\bin\Debug\net6.0-windows\PdfSharp.dll
 C:\Users\gr604_mieol\Source\Repos\Faq-Wpf-Mvvm-Back\Faq-Wpf-Mvvm\bin\Debug\net6.0-windows\de\PdfSharp.Charting.resources.dll
 C:\Users\gr604_mieol\Source\Repos\Faq-Wpf-Mvvm-Back\Faq-Wpf-Mvvm\bin\Debug\net6.0-windows\de\PdfSharp.resources.dll
+C:\Users\gr604_mieol\Source\Repos\Faq-Wpf-Mvvm-Back\Faq-Wpf-Mvvm\obj\Debug\net6.0-windows\Faq-Wpf-Mvvm.csproj.AssemblyReference.cache
+C:\Users\gr604_mieol\Source\Repos\Faq-Wpf-Mvvm-Back\Faq-Wpf-Mvvm\obj\Debug\net6.0-windows\Faq-Wpf-Mvvm.csproj.ResolveComReference.cache
+C:\Users\gr604_mieol\Source\Repos\Faq-Wpf-Mvvm-Back\Faq-Wpf-Mvvm\bin\Debug\net6.0-windows\DevExpress.Data.v21.2.dll
+C:\Users\gr604_mieol\Source\Repos\Faq-Wpf-Mvvm-Back\Faq-Wpf-Mvvm\bin\Debug\net6.0-windows\Ookii.Dialogs.Wpf.dll

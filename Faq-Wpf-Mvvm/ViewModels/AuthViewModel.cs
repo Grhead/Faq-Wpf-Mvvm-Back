@@ -19,11 +19,11 @@ namespace Faq_Wpf_Mvvm.ViewModels
         private string _password;
         private RelayCommand _applyBtn;
         public string Login { get { return _login; } set { _login = value; } }
-        public string Password { get { return _password; } set { _password = value; } }
         public RelayCommand ApplyBtn => _applyBtn ?? (_applyBtn = new RelayCommand(x =>
         {
-            
-            User tempAuth = Service.db.Users.FirstOrDefault(x => x.Login == Login && x.Password == Password);
+            var passwordBox = x as PasswordBox;
+            var password = passwordBox.Password;
+            User tempAuth = Service.db.Users.FirstOrDefault(x => x.Login == Login && x.Password == password);
             if (tempAuth != null)
             {
                 Service.ClientSession = tempAuth;

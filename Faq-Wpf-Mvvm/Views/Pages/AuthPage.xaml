@@ -3,7 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:Faq_Wpf_Mvvm.Views"
+      xmlns:local="clr-namespace:Faq_Wpf_Mvvm.Views" xmlns:viewmodels="clr-namespace:Faq_Wpf_Mvvm.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:AuthViewModel}"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="AuthPage">
@@ -46,8 +46,8 @@
             FontFamily="Cousine"
             FontSize="18"
         />
-        <TextBox
-            x:Name="PasswordBox"
+        <PasswordBox
+            x:Name="PasswordBoxs"
             Grid.Row="3"
             VerticalContentAlignment="Center"
             Margin="150 10 150 10"
@@ -55,7 +55,6 @@
             FontFamily="Cousine"
             FontSize="14"
             FontWeight="Bold"
-            Text="{Binding Password}"
         />
         <Button 
             x:Name="ApplyButton"
@@ -66,7 +65,7 @@
             FontSize="24"
             IsDefault = "true"
             Command="{Binding ApplyBtn}"
-            CommandParameter="{Binding ElementName =PasswordBox}"
+            CommandParameter="{Binding ElementName =PasswordBoxs}"
         />
     </Grid>
 </Page>

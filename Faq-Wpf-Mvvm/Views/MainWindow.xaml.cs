@@ -20,17 +20,9 @@ namespace Faq_Wpf_Mvvm
         public MainWindow()
         {
             InitializeComponent();
-            InitialClass.Init();
+            //InitialClass.Init();
             Service.frame = MainFrame;
             DataContext = new NavigationViewModel();
-        }
-
-        private void RegisterBtn_Click(object sender, RoutedEventArgs e)
-        {
-            if (Service.ClientSession.Login != null)
-            {
-                RegisterBtn.Visibility = Visibility.Collapsed;
-            }
         }
     }
 }

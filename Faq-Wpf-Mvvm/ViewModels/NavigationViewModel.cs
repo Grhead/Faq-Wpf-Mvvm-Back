@@ -31,55 +31,55 @@ namespace Faq_Wpf_Mvvm
                     Service.frame.Navigate(new RegistrePage());
                     break;
                 case "prof":
-                    if (Service.ClientSession.Login != null)
+                    if (Service.ClientSession != null)
                     {
                         Service.frame.Navigate(new ProfilePage());
                     }
                     break;
                 case "ulist":
-                    if (Service.ClientSession.Login != null)
+                    if (Service.ClientSession != null)
                     {
                         Service.frame.Navigate(new ViewUsersPage());
                     }
                     break;
                 case "tlist":
-                    if (Service.ClientSession.Login != null)
+                    if (Service.ClientSession != null)
                     {
                         Service.frame.Navigate(new AvailableTaskPage());
                     }
                     break;
                 case "scre":
-                    if (Service.ClientSession.Login != null)
+                    if (Service.ClientSession != null)
                     {
                         Service.frame.Navigate(new GetTaskPage());
                     }
                     break;
                 case "hist":
-                    if (Service.ClientSession.Login != null)
+                    if (Service.ClientSession != null)
                     {
                         Service.frame.Navigate(new HistoryPage());
                     }
                     break;
                 case "stat":
-                    if (Service.ClientSession.Login != null)
+                    if (Service.ClientSession != null)
                     {
                         Service.frame.Navigate(new ChangeStatusPage());
                     }
                     break;
                 case "filt":
-                    if (Service.ClientSession.Login != null)
+                    if (Service.ClientSession != null)
                     {
                         Service.frame.Navigate(new FilterPage());
                     }
                     break;
                 case "find":
-                    if (Service.ClientSession.Login != null)
+                    if (Service.ClientSession != null)
                     {
                         Service.frame.Navigate(new FindPage());
                     }
                     break;
                 case "crea":
-                    if (Service.ClientSession.Login != null)
+                    if (Service.ClientSession != null)
                     {
                         Service.frame.Navigate(new CreateTaskPage());
                     }

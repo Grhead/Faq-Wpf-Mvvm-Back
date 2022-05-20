@@ -1,15 +1,21 @@
 ﻿using ClosedXML.Excel;
+using DevExpress.Utils.CommonDialogs.Internal;
+using DocumentFormat.OpenXml.CustomProperties;
 using Faq_Wpf_Mvvm.Models;
 using Microsoft.EntityFrameworkCore;
+using Ookii.Dialogs.Wpf;
 using PdfSharp.Drawing;
 using PdfSharp.Pdf;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using WinForms = System.Windows.Forms;
 
 namespace Faq_Wpf_Mvvm.ViewModels
 {
@@ -74,8 +80,7 @@ namespace Faq_Wpf_Mvvm.ViewModels
                 height = height + 23;
                 width = 0;
             }
-            const string filename = "Reports/Report.pdf";
-            document.Save(filename);
+            
             using (XLWorkbook workbook = new XLWorkbook())
             {
                 string name = "Report" + rand.Next().ToString();
@@ -118,7 +123,16 @@ namespace Faq_Wpf_Mvvm.ViewModels
                 worksheet.Column("C").AdjustToContents();
                 worksheet.Column("D").AdjustToContents();
                 worksheet.Column("A").AdjustToContents();
-                workbook.SaveAs($"Reports/{name}.xlsx");
+                VistaFolderBrowserDialog dlg = new VistaFolderBrowserDialog();
+                dlg.ShowNewFolderButton = true;
+                string path = "C:\\";
+                if (dlg.ShowDialog() == true)
+                {
+                    path = dlg.SelectedPath;
+                }
+                workbook.SaveAs($"{path}\\{name}.xlsx");
+                string filename = path + "\\" + "Report.pdf";
+                document.Save(filename);
             }
         }));
     }
